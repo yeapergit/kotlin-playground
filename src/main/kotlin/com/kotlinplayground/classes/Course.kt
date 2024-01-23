@@ -3,8 +3,16 @@ package com.kotlinplayground.classes
 data class Course( //dto, models, etc
     val id: Int,
     val name: String,
-    val author: String
+    val author: String,
+    var courseCategory: CourseCategory = CourseCategory.DEVELOPMENT
 )
+
+enum class CourseCategory {
+    DEVELOPMENT,
+    BUSINESS,
+    DESIGN,
+    MARKETING
+}
 
 fun main() {
     val course = Course(1, "oi", "tonho");
@@ -16,4 +24,6 @@ fun main() {
     println("checking equality: ${course == course1}")
 
     val course2 = course1.copy(); //clone
+    course2.courseCategory = CourseCategory.BUSINESS
+    println(course2)
 }
